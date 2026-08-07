@@ -1,0 +1,171 @@
+/* ui-ultimate-reforce — tokens base
+   Copiar al proyecto e importar antes de cualquier otro CSS.
+   Cambiar --accent-h para reajustar toda la identidad de color de una sola vez. */
+
+:root {
+  color-scheme: light;
+
+  /* Tono maestro. Todo el sistema se recalcula desde aquí. */
+  --accent-h: 258;
+
+  /* Superficies (claro) */
+  --surface-0: hsl(var(--accent-h) 20% 99%);
+  --surface-1: hsl(var(--accent-h) 16% 97%);
+  --surface-2: hsl(var(--accent-h) 14% 94%);
+  --surface-3: hsl(var(--accent-h) 12% 90%);
+  --border: hsl(var(--accent-h) 14% 87%);
+  --border-strong: hsl(var(--accent-h) 12% 78%);
+
+  /* Texto */
+  --text: hsl(var(--accent-h) 22% 12%);
+  --text-muted: hsl(var(--accent-h) 10% 42%);
+  --text-subtle: hsl(var(--accent-h) 8% 56%);
+  --text-on-accent: hsl(0 0% 100%);
+
+  /* Acento */
+  --accent: hsl(var(--accent-h) 82% 58%);
+  --accent-hover: hsl(var(--accent-h) 82% 52%);
+  --accent-soft: hsl(var(--accent-h) 82% 96%);
+  --accent-ring: hsl(var(--accent-h) 82% 58% / 0.45);
+
+  /* Semánticos */
+  --success: hsl(152 62% 38%);
+  --success-soft: hsl(152 62% 95%);
+  --warning: hsl(38 92% 46%);
+  --warning-soft: hsl(38 92% 95%);
+  --danger: hsl(358 72% 52%);
+  --danger-soft: hsl(358 72% 96%);
+  --info: hsl(210 84% 50%);
+  --info-soft: hsl(210 84% 96%);
+
+  /* Tipografía */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+  --measure: 68ch;
+
+  /* Espaciado — escala de 4px */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* Forma */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+
+  /* Elevación */
+  --shadow-sm: 0 1px 2px hsl(var(--accent-h) 24% 12% / 0.06);
+  --shadow-md: 0 4px 12px -2px hsl(var(--accent-h) 24% 12% / 0.10);
+  --shadow-lg: 0 16px 40px -12px hsl(var(--accent-h) 24% 12% / 0.18);
+
+  /* Movimiento */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 130ms;
+  --dur-base: 190ms;
+  --dur-slow: 320ms;
+
+  /* Capas */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+}
+
+.dark,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --surface-0: hsl(var(--accent-h) 18% 7%);
+  --surface-1: hsl(var(--accent-h) 16% 10%);
+  --surface-2: hsl(var(--accent-h) 14% 13%);
+  --surface-3: hsl(var(--accent-h) 12% 17%);
+  --border: hsl(0 0% 100% / 0.09);
+  --border-strong: hsl(0 0% 100% / 0.16);
+
+  --text: hsl(var(--accent-h) 14% 96% / 0.92);
+  --text-muted: hsl(var(--accent-h) 10% 72% / 0.72);
+  --text-subtle: hsl(var(--accent-h) 8% 64% / 0.55);
+
+  --accent: hsl(var(--accent-h) 72% 66%);
+  --accent-hover: hsl(var(--accent-h) 72% 72%);
+  --accent-soft: hsl(var(--accent-h) 60% 66% / 0.14);
+  --accent-ring: hsl(var(--accent-h) 72% 66% / 0.5);
+
+  --success-soft: hsl(152 50% 40% / 0.16);
+  --warning-soft: hsl(38 80% 50% / 0.16);
+  --danger-soft: hsl(358 70% 55% / 0.16);
+  --info-soft: hsl(210 80% 55% / 0.16);
+
+  --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.4);
+  --shadow-md: 0 6px 18px -4px hsl(0 0% 0% / 0.5);
+  --shadow-lg: 0 22px 50px -16px hsl(0 0% 0% / 0.65);
+}
+
+/* Base mínima */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--surface-0);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: var(--leading-tight);
+  text-wrap: balance;
+  margin: 0;
+}
+
+p { text-wrap: pretty; max-width: var(--measure); }
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+:where(table, .tabular) { font-variant-numeric: tabular-nums; }
+
+/* Interruptor global de movimiento: mantiene la interfaz utilizable
+   sin animaciones, en vez de eliminarlas a medias. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
