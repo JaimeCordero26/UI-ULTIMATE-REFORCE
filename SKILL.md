@@ -1,6 +1,6 @@
 ---
 name: ui-ultimate-reforce
-description: Sistema unificado para construir interfaces de alto impacto visual, bajo consumo de recursos y seguras, en cualquier lenguaje o stack (React/Next, Vue, Svelte, HTML/CSS, Astro, Flutter, Compose, JavaFX, Python TUI, CLI). Usa esta skill SIEMPRE que la tarea toque UI, pantallas, componentes, layout, estilos, temas, tipografía, iconos, landing pages, dashboards, formularios, animaciones o transiciones; cuando el usuario pida que algo "se vea bien", "se vea pro", "moderno", "increíble" o "con onda"; cuando haya que instalar componentes de React Bits / Vue Bits / Svelte Bits, elegir iconos (mx-icons, Lucide, Iconify), definir tokens de diseño, revisar peso de bundle y rendimiento del front, o auditar seguridad de la app. Aplícala también en prototipos rápidos, mockups, HTML desechable, ejemplos y refactors visuales, aunque el usuario nunca mencione diseño, rendimiento ni seguridad.
+description: Sistema unificado para construir interfaces de alto impacto visual, bajo consumo de recursos y seguras, en cualquier lenguaje o stack (React/Next, Vue, Svelte, HTML/CSS, Astro, Flutter, Compose, JavaFX, Python TUI, CLI). Usa esta skill SIEMPRE que la tarea toque UI, pantallas, componentes, layout, estilos, temas, arquetipos visuales (minimalismo, bento grid, glassmorphism, neumorphism, brutalism, aurora), tipografía, iconos, landing pages, dashboards, formularios, animaciones, movimiento o transiciones; cuando el usuario pida que algo "se vea bien", "se vea pro", "moderno", "increíble", "con onda" o "con buen gusto"; cuando haya que instalar componentes de React Bits / Vue Bits / Svelte Bits, elegir iconos (mx-icons, Lucide, Iconify), definir tokens de diseño, animar con GSAP / Framer Motion / CSS, aplicar principios de motion (Emil Kowalski), explorar variantes de diseño, revisar peso de bundle y rendimiento del front, o auditar seguridad de la app. También trae un modo de compresión de salida propio (estilo caveman) y comandos `/reforce:*` para intervenir por partes (build, polish, motion, secure, perf, style, variants, brief). Aplícala en construcción completa de un prompt y en prototipos, mockups, HTML desechable, ejemplos y refactors visuales, aunque el usuario nunca mencione diseño, rendimiento ni seguridad.
 ---
 
 # UI Ultimate Reforce
@@ -24,10 +24,15 @@ tarea. Si la tarea es "cambiá el color de un botón", no leas ninguna.
 | Proyecto React/Next y toca animación, fondo, hero, efecto visual | `references/react-bits.md` |
 | Hay que poner iconos en cualquier stack | `references/icons.md` |
 | Proyecto nuevo, rediseño, o no hay sistema visual definido | `references/design-tokens.md` |
+| Hay que construir UI real (hero, tarjetas, dashboard, formulario, navbar) y que se vea premium | `references/recipes.md` |
+| Hay que animar, hacer scroll-driven, usar GSAP/Framer, o el movimiento se siente torpe | `references/motion.md` |
+| Hay que elegir/aplicar un lenguaje visual completo (bento, glass, minimal, brutalism, aurora…) | `references/style-systems.md` |
+| "Se ve correcto pero le falta algo", "hacelo más pro/con gusto", o hay que explorar variantes | `references/taste.md` |
 | El stack NO es React (Vue, Svelte, HTML, Flutter, Compose, JavaFX, Python, CLI/TUI) | `references/stacks.md` |
 | Se nota lento, hay que medir, o se van a agregar 2+ efectos | `references/performance.md` |
 | Hay auth, formularios, datos de usuario, pagos, API, deploy, o el usuario pide auditar | `references/security.md` |
 | Formularios, navegación por teclado, contraste, dudas de accesibilidad | `references/a11y.md` |
+| El usuario pide "modo caveman", "menos tokens" o "sé breve" | `references/brief-mode.md` |
 
 ## Flujo de trabajo
 
@@ -45,6 +50,33 @@ tarea. Si la tarea es "cambiá el color de un botón", no leas ninguna.
    desde 360 px.
 5. **Cerrá con las tres puertas.** Corré `scripts/audit.sh` si el proyecto tiene JS/TS,
    y repasá el checklist de cierre al final de este archivo.
+
+## Modos de uso: todo junto o por partes
+
+El caso principal es la **construcción completa** (el flujo de arriba, las tres puertas). Pero
+la skill también sirve para intervenir en una sola cosa sin rehacer el resto. Detectá el modo
+por lo que pide el usuario y ejecutá solo esa parte:
+
+| El usuario pide… | Modo / comando | Qué hacés (y qué NO tocás) |
+|---|---|---|
+| "hacé la pantalla / la landing / el dashboard" | **Construir** · `/reforce:build` | Flujo completo + tres puertas. |
+| "esto se ve feo / mejoralo / hacelo pro / con gusto" | **Rediseño visual** · `/reforce:polish` | Puerta de diseño: `taste.md`, tokens, jerarquía, `recipes.md`. No reescribas lógica. |
+| "animá / hacelo con movimiento / scroll-driven" | **Movimiento** · `/reforce:motion` | Solo `motion.md`. Interaction thesis + mini-audit. |
+| "quiero estilo bento / glass / minimal / brutalism…" | **Estilo** · `/reforce:style` | Solo `style-systems.md`. Un arquetipo, consistente. |
+| "mostrame opciones / explorá variantes" | **Variantes** · `/reforce:variants` | HTML desechable, 3–5 variantes, comparar y elegir. |
+| "está lento / pesa mucho / optimizá" | **Peso** · `/reforce:perf` | Solo `performance.md` + `audit.sh`. Medí antes de tocar. |
+| "revisá seguridad / auditá / ¿es seguro?" | **Seguridad** · `/reforce:secure` | Solo `security.md` + `audit.sh`. Reportá hallazgos, no cambies diseño. |
+| "arreglá el foco / el teclado / el contraste" | **Accesibilidad** | Solo `a11y.md`. |
+| "agregá el efecto / componente X" | **Componente** | `add-component.sh` + reportá el costo antes de aceptar. |
+| "modo caveman / menos tokens / sé breve" | **Breve** · `/reforce:brief` | `brief-mode.md`. Comprime prosa, nunca código ni avisos de puertas. |
+
+Los comandos `/reforce:*` son la misma cosa que los modos, invocables por nombre. Se instalan
+en `.claude/commands/reforce/` (ver `install.sh`). Sirven cuando el usuario quiere disparar
+una parte sin describir todo el flujo: pulir más, endurecer seguridad, sumar movimiento.
+
+Regla: en modo por partes, **no expandas el alcance**. Si al corregir el peso ves un problema
+de seguridad, avisalo en una línea; no lo arregles sin permiso. Un modo, un cambio acotado,
+un reporte claro. Así el usuario puede corregir cosas de a una sin sorpresas.
 
 ## Presupuesto de recursos (aplica siempre, sin leer nada más)
 
@@ -84,19 +116,23 @@ efecto automáticamente y decilo en una línea.
 - Antes de agregar una dependencia nueva, mirá peso, última publicación y mantenedores.
   Una librería de 40 KB para un componente que se resuelve en 20 líneas de CSS no entra.
 
-## Compatibilidad con la skill caveman
+## Modo breve propio (caveman incluido) y compatibilidad
 
-Caveman comprime la prosa de salida; esta skill define **qué se construye**. No chocan,
-pero para que convivan bien:
+La skill trae su **propio** modo de compresión de salida (`references/brief-mode.md`,
+`/reforce:brief [lite|full|ultra|off]`): recorta la prosa como caveman pero sabe de las tres
+puertas, así que es todo-en-uno y no depende de nada externo. Reglas base:
 
 - Todo lo que sea código, comando, ruta, nombre de componente, dependencia o mensaje de
-  error se escribe **exacto y completo**, nunca comprimido. Caveman ya respeta esto.
+  error se escribe **exacto y completo**, nunca comprimido.
 - La narración alrededor (explicaciones, justificaciones de diseño) sí se comprime.
 - **Excepción de claridad:** los avisos de las tres puertas se escriben en español normal
-  y completo, no en estilo caveman. Un hallazgo de seguridad, una advertencia de peso de
-  bundle o un aviso de que se bajó el nivel de efecto tienen que entenderse a la primera.
-- Formato de aviso corto en modo caveman, una línea por puerta:
-  `[UI] hero + tokens listos. [PESO] +12 KB gzip, ogl lazy. [SEC] sin hallazgos.`
+  y completo, aunque el nivel sea `ultra`. Un hallazgo de seguridad, una advertencia de peso
+  o un aviso de que se bajó el nivel de efecto tienen que entenderse a la primera.
+- Formato de aviso corto, una línea por puerta:
+  `[UI] hero + tokens listos. [MOV] entrada ease-out 200ms. [PESO] +24 KB gzip, gsap lazy. [SEC] sin hallazgos.`
+- **Compatibilidad:** si el usuario ya usa la skill/plugin caveman externa, no dupliques la
+  compresión; solo garantizá la excepción de claridad de las puertas. El último modo invocado
+  fija el nivel.
 
 ## Scripts incluidos
 
@@ -109,6 +145,18 @@ nada globalmente.
 - `scripts/add-component.sh` — instala un componente de React Bits por CLI y reporta qué
   dependencias nuevas entraron y cuánto pesan, para decidir con datos antes de aceptarlas.
   Uso: `bash scripts/add-component.sh <Componente> [TS-TW|TS-CSS|JS-TW|JS-CSS]`
+- `scripts/pre-commit.sh` — engancha `audit.sh` como hook de git para que la puerta de
+  seguridad corra **sola** en cada commit y bloquee si hay hallazgos. Es el antídoto al
+  problema de que la seguridad se "olvide": deja de depender de que alguien se acuerde.
+  Instalar una vez por repo: `bash scripts/pre-commit.sh --install`
+
+## La puerta de seguridad no es opcional
+
+El error más común de un agente construyendo UI es entregar algo lindo y rápido y **saltarse
+la seguridad** porque el usuario no la pidió. En esta skill no se salta: es una de las tres
+puertas y se reporta siempre, aunque el pedido haya sido solo "una pantalla rápida". Si no
+hubo tiempo de auditar a fondo, se dice explícitamente qué quedó sin revisar. No se entrega
+en silencio.
 
 ## Checklist de cierre
 

@@ -3,8 +3,10 @@
 set -euo pipefail
 
 SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DEST="$HOME/.claude/skills/ui-ultimate-reforce"
-[ "${1:-}" = "--local" ] && DEST="$(pwd)/.claude/skills/ui-ultimate-reforce"
+ROOT="$HOME/.claude"
+[ "${1:-}" = "--local" ] && ROOT="$(pwd)/.claude"
+DEST="$ROOT/skills/ui-ultimate-reforce"
+CMD_DEST="$ROOT/commands/reforce"
 
 mkdir -p "$(dirname "$DEST")"
 rm -rf "$DEST"
@@ -15,5 +17,11 @@ cp "$SRC/SKILL.md" "$DEST/"
 cp -r "$SRC/references" "$SRC/scripts" "$SRC/assets" "$DEST/"
 chmod +x "$DEST/scripts/"*.sh
 
-echo "Instalada en: $DEST"
-echo "Verificá con /skills dentro de una sesión de Claude Code."
+# Comandos /reforce:* (build, polish, motion, secure, perf, style, variants, brief).
+rm -rf "$CMD_DEST"
+mkdir -p "$CMD_DEST"
+cp "$SRC/commands/reforce/"*.md "$CMD_DEST/"
+
+echo "Skill instalada en:    $DEST"
+echo "Comandos instalados en: $CMD_DEST  (usá /reforce:build, /reforce:polish, …)"
+echo "Verificá con /skills y /help dentro de una sesión de Claude Code."
