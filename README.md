@@ -248,12 +248,25 @@ ui-ultimate-reforce/
 │   ├── taste.md                gusto: tests, gate "no slop", variantes (superdesign)
 │   ├── stacks.md               UI fuera de React: Vue, Flutter, JavaFX, Python, CLI
 │   ├── performance.md          presupuestos, causas reales de lentitud, medición
-│   ├── security.md             OWASP Top 10 2025 aplicado al código que se escribe
+│   ├── security.md             OWASP Top 10 2025 + cuándo sumar la skill security-review
 │   ├── a11y.md                 accesibilidad práctica
-│   └── brief-mode.md           modo de compresión propio (caveman incluido)
+│   ├── brief-mode.md           modo de compresión propio (caveman incluido)
+│   ├── frontend-design.md      arquitectura: capas, composición, CSS, responsive
+│   ├── ui-ux-pro-max.md        checklist maestro de 7 puntos, pase final pro/elite
+│   ├── refactoring-ui.md       tácticas del libro: jerarquía, contraste, espaciado
+│   ├── web-typography.md       escala, interlineado, medida, pareo de fuentes
+│   ├── microinteractions.md    marco de Dan Saffer: disparador, reglas, feedback, loop
+│   ├── ux-heuristics.md        10 heurísticas de Nielsen + Fitts/Hick/Miller/Jakob
+│   ├── design-html.md          HTML semántico como base de diseño y accesibilidad
+│   ├── canvas-design.md        SVG vs. canvas vs. WebGL, patrones seguros de dibujo
+│   ├── theme-factory.md        generar tema claro/oscuro completo desde un color OKLCH
+│   ├── content-studio.md       UX writing: botones, errores, vacíos, confirmaciones
+│   ├── brand-guidelines.md     respetar o definir guía de marca (logo, color, tono)
+│   └── made-to-stick.md        marco SUCCESS para headlines y mensajes memorables
 ├── commands/reforce/
 │   ├── build.md   polish.md   motion.md   style.md
-│   └── variants.md  secure.md  perf.md    brief.md
+│   ├── variants.md  secure.md  perf.md    brief.md
+│   └── copy.md    brand.md
 └── scripts/
     ├── audit.sh                auditoría de seguridad y peso
     ├── add-component.sh        instalar React Bits reportando el costo
@@ -266,6 +279,9 @@ ui-ultimate-reforce/
 
 MIT. Construida sobre las ideas y el trabajo de mucha gente: el oficio de animación de
 **Emil Kowalski**, **GSAP** (GreenSock/Webflow, hoy 100% gratis), **React Bits**, **mx-icons**,
-el método de **superdesign**, la filosofía de **genjutsu** y el **OWASP Top 10 2025**. React
-Bits se distribuye bajo MIT + Commons Clause y no se incluye en este repositorio; la skill solo
-documenta cómo instalarlo desde su fuente oficial.
+el método de **superdesign**, la filosofía de **genjutsu**, el **OWASP Top 10 2025**, las
+heurísticas de **Jakob Nielsen**, las tácticas de *Refactoring UI* (**Adam Wathan** y
+**Steve Schoger**), el marco de micro-interacciones de **Dan Saffer** y el marco SUCCESS de
+*Made to Stick* (**Chip y Dan Heath**). React Bits se distribuye bajo MIT + Commons Clause y
+no se incluye en este repositorio; la skill solo documenta cómo instalarlo desde su fuente
+oficial.

@@ -17,7 +17,7 @@ cp "$SRC/SKILL.md" "$DEST/"
 cp -r "$SRC/references" "$SRC/scripts" "$SRC/assets" "$DEST/"
 chmod +x "$DEST/scripts/"*.sh
 
-# Comandos /reforce:* (build, polish, motion, secure, perf, style, variants, brief).
+# Comandos /reforce:* (build, polish, motion, secure, perf, style, variants, brief, copy, brand).
 rm -rf "$CMD_DEST"
 mkdir -p "$CMD_DEST"
 cp "$SRC/commands/reforce/"*.md "$CMD_DEST/"

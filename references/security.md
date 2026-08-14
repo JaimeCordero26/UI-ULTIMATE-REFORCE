@@ -114,3 +114,13 @@ pip-audit                      # proyectos Python
 
 Corré el escaneo de secretos **antes del primer push**, no después. Una vez que la clave
 está en un repositorio público, hay que asumir que ya fue leída por un bot.
+
+## Auditoría profunda: skill `security-review`
+
+`scripts/audit.sh` es el escaneo rápido que corre siempre, sin pedirlo. Cuando el pedido es
+específicamente "auditá esto a fondo", "revisá seguridad antes de mergear", o se está por
+cerrar un PR con cambios sensibles (auth, pagos, permisos), invocá la skill `security-review`
+(revisión de seguridad del diff/rama actual) además de `audit.sh`: cubre revisión de lógica
+de autorización y flujo de datos que un grep de patrones no detecta, no solo secretos y
+dependencias. `audit.sh` es el piso que nunca se salta; `security-review` es el techo para
+cambios que lo ameritan.

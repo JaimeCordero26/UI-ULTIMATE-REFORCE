@@ -1,6 +1,6 @@
 ---
 name: ui-ultimate-reforce
-description: Sistema unificado para construir interfaces de alto impacto visual, bajo consumo de recursos y seguras, en cualquier lenguaje o stack (React/Next, Vue, Svelte, HTML/CSS, Astro, Flutter, Compose, JavaFX, Python TUI, CLI). Usa esta skill SIEMPRE que la tarea toque UI, pantallas, componentes, layout, estilos, temas, arquetipos visuales (minimalismo, bento grid, glassmorphism, neumorphism, brutalism, aurora), tipografía, iconos, landing pages, dashboards, formularios, animaciones, movimiento o transiciones; cuando el usuario pida que algo "se vea bien", "se vea pro", "moderno", "increíble", "con onda" o "con buen gusto"; cuando haya que instalar componentes de React Bits / Vue Bits / Svelte Bits, elegir iconos (mx-icons, Lucide, Iconify), definir tokens de diseño, animar con GSAP / Framer Motion / CSS, aplicar principios de motion (Emil Kowalski), explorar variantes de diseño, revisar peso de bundle y rendimiento del front, o auditar seguridad de la app. También trae un modo de compresión de salida propio (estilo caveman) y comandos `/reforce:*` para intervenir por partes (build, polish, motion, secure, perf, style, variants, brief). Aplícala en construcción completa de un prompt y en prototipos, mockups, HTML desechable, ejemplos y refactors visuales, aunque el usuario nunca mencione diseño, rendimiento ni seguridad.
+description: Sistema unificado para construir interfaces de alto impacto visual, bajo consumo de recursos y seguras, en cualquier lenguaje o stack (React/Next, Vue, Svelte, HTML/CSS, Astro, Flutter, Compose, JavaFX, Python TUI, CLI). Usa esta skill SIEMPRE que la tarea toque UI, pantallas, componentes, layout, estilos, temas, arquetipos visuales (minimalismo, bento grid, glassmorphism, neumorphism, brutalism, aurora), tipografía, iconos, landing pages, dashboards, formularios, animaciones, movimiento o transiciones; cuando el usuario pida que algo "se vea bien", "se vea pro", "moderno", "increíble", "con onda" o "con buen gusto"; cuando haya que instalar componentes de React Bits / Vue Bits / Svelte Bits, elegir iconos (mx-icons, Lucide, Iconify), definir tokens de diseño, animar con GSAP / Framer Motion / CSS, aplicar principios de motion (Emil Kowalski) o de micro-interacciones (Dan Saffer), explorar variantes de diseño, aplicar heurísticas de usabilidad (Nielsen) o tácticas de Refactoring UI, definir arquitectura de componentes, tipografía web, dibujar con canvas/SVG/WebGL, generar un tema completo desde un color de marca, escribir copy de interfaz o mensajes memorables (SUCCESS de Made to Stick), aplicar/definir guía de marca, revisar peso de bundle y rendimiento del front, o auditar seguridad de la app. También trae un modo de compresión de salida propio (estilo caveman) y comandos `/reforce:*` para intervenir por partes (build, polish, motion, secure, perf, style, variants, brief, copy, brand). Aplícala en construcción completa de un prompt y en prototipos, mockups, HTML desechable, ejemplos y refactors visuales, aunque el usuario nunca mencione diseño, rendimiento ni seguridad.
 ---
 
 # UI Ultimate Reforce
@@ -33,6 +33,18 @@ tarea. Si la tarea es "cambiá el color de un botón", no leas ninguna.
 | Hay auth, formularios, datos de usuario, pagos, API, deploy, o el usuario pide auditar | `references/security.md` |
 | Formularios, navegación por teclado, contraste, dudas de accesibilidad | `references/a11y.md` |
 | El usuario pide "modo caveman", "menos tokens" o "sé breve" | `references/brief-mode.md` |
+| Hay que decidir arquitectura de componentes, capas del design system o cómo organizar CSS/props | `references/frontend-design.md` |
+| El pedido es "que quede pro/nivel producción", o hay que hacer el pase final antes de cerrar una pantalla importante | `references/ui-ux-pro-max.md` |
+| Hay que resolver jerarquía/contraste/espaciado con tácticas puntuales (Refactoring UI) | `references/refactoring-ui.md` |
+| Hay que definir escala tipográfica, largo de línea, pareo de fuentes o texto fluido | `references/web-typography.md` |
+| Hay que diseñar un toggle, like, validación en vivo, undo u otra micro-interacción puntual | `references/microinteractions.md` |
+| Dudas de usabilidad, flujo confuso, carga cognitiva o patrones que el usuario espera | `references/ux-heuristics.md` |
+| Hay que estructurar HTML: formularios, landmarks, o modal/acordeón/menú (dialog, details, popover nativos) | `references/design-html.md` |
+| Hay que dibujar con canvas/SVG/WebGL más allá de un efecto de fondo, o visualizar datos custom | `references/canvas-design.md` |
+| Hay que generar una paleta/tema completo (claro+oscuro) desde un color semilla | `references/theme-factory.md` |
+| Hay que escribir copy de UI: botones, mensajes de error, estados vacíos, confirmaciones | `references/content-studio.md` |
+| El proyecto tiene o necesita guía de marca (logo, tono, uso de color) | `references/brand-guidelines.md` |
+| Hay que escribir un headline, propuesta de valor u onboarding memorable | `references/made-to-stick.md` |
 
 ## Flujo de trabajo
 
@@ -68,6 +80,8 @@ por lo que pide el usuario y ejecutá solo esa parte:
 | "revisá seguridad / auditá / ¿es seguro?" | **Seguridad** · `/reforce:secure` | Solo `security.md` + `audit.sh`. Reportá hallazgos, no cambies diseño. |
 | "arreglá el foco / el teclado / el contraste" | **Accesibilidad** | Solo `a11y.md`. |
 | "agregá el efecto / componente X" | **Componente** | `add-component.sh` + reportá el costo antes de aceptar. |
+| "escribí el copy / los mensajes de error / el texto de los botones / el headline" | **Copy** · `/reforce:copy` | `content-studio.md` (+ `made-to-stick.md` si es headline/propuesta de valor). No toques layout ni componentes. |
+| "necesito guía de marca / esto respeta la marca / no tenemos marca definida" | **Marca** · `/reforce:brand` | `brand-guidelines.md` (+ `theme-factory.md` si hay que generar paleta). No inventes marca si ya existe una. |
 | "modo caveman / menos tokens / sé breve" | **Breve** · `/reforce:brief` | `brief-mode.md`. Comprime prosa, nunca código ni avisos de puertas. |
 
 Los comandos `/reforce:*` son la misma cosa que los modos, invocables por nombre. Se instalan
